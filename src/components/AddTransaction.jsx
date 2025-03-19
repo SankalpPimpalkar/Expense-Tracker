@@ -48,7 +48,7 @@ export default function AddTransaction() {
 						className="font-semibold text-gray-800 text-sm"
 						htmlFor="text"
 					>
-						Amount (+Amount or -Amount)
+						Amount (+Amount or -Amount) (In Dollars)
 					</label>
 					<input
 						type="number"

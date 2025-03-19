@@ -2,7 +2,8 @@ import React from "react";
 import { useGlobalContext } from "../context/GlobalState";
 
 export default function TransactionHistory() {
-	const { transactions, deleteTransaction } = useGlobalContext();
+	const { transactions, deleteTransaction, conversionRate } =
+		useGlobalContext();
 
 	return (
 		<div>
@@ -33,7 +34,9 @@ export default function TransactionHistory() {
 
 								<div className="flex items-center gap-5">
 									<p className="font-semibold text-gray-600 text-sm">
-										{transaction.amount}
+										{Number(
+											transaction.amount * conversionRate
+										).toLocaleString("en-IN")}
 									</p>
 									<button
 										className="left-0 text-red-400 cursor-pointer hidden group-hover:block"
@@ -75,9 +78,7 @@ export default function TransactionHistory() {
 						</li>
 					))
 				) : (
-					<p className="text-sm text-gray-600">
-						No transactions yet
-					</p>
+					<p className="text-sm text-gray-600">No transactions yet</p>
 				)}
 			</ul>
 		</div>

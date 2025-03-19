@@ -5,6 +5,8 @@ const INITIAL_STATE = {
 	transactions: JSON.parse(localStorage.getItem("transactions")) || [],
 	deleteTransaction: (id) => {},
 	addTransaction: ({ text, amount }) => {},
+	conversionRate: 84,
+	updateConversionRate: (rate) => {}
 };
 
 // App Reducer
@@ -51,6 +53,12 @@ function APP_REDUCER(state, action) {
 				],
 			};
 
+		case "CONVERT":
+			return {
+				...state,
+				conversionRate: action.payload,
+			};
+
 		default:
 			return state;
 	}
@@ -79,10 +87,19 @@ export default function GlobalStateProvider({ children }) {
 		});
 	}
 
+	function updateConversionRate(conversionRate) {
+		dispatch({
+			type: "CONVERT",
+			payload: conversionRate,
+		});
+	}
+
 	const values = {
 		transactions: state.transactions,
 		deleteTransaction,
 		addTransaction,
+		updateConversionRate,
+		conversionRate: state.conversionRate
 	};
 
 	return (

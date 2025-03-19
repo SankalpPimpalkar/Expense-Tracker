@@ -2,7 +2,7 @@ import React from "react";
 import { useGlobalContext } from "../context/GlobalState";
 
 export default function IncomeExpense() {
-	const { transactions } = useGlobalContext();
+	const { transactions, conversionRate } = useGlobalContext();
 	const amounts = transactions.map((transaction) => transaction.amount);
 	const incomeAmount =
 		amounts
@@ -19,13 +19,17 @@ export default function IncomeExpense() {
 				<div className="w-full p-1 text-center">
 					<h5 className="font-semibold text-lg">Income</h5>
 					<p className="text-xl font-semibold text-green-500">
-						{Math.abs(incomeAmount).toFixed(2)}
+						{Number(
+							Math.abs(incomeAmount).toFixed(2) * conversionRate
+						).toLocaleString("en-IN")}
 					</p>
 				</div>
 				<div className="w-full p-1 text-center">
 					<h5 className="font-semibold text-lg">Expense</h5>
 					<p className="text-xl font-semibold text-red-500">
-						{Math.abs(expenseAmount).toFixed(2)}
+						{Number(
+							Math.abs(expenseAmount).toFixed(2) * conversionRate
+						).toLocaleString("en-IN")}
 					</p>
 				</div>
 			</div>
