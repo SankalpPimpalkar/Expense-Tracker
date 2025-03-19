@@ -12,6 +12,10 @@ export default function AddTransaction() {
 		e.preventDefault();
 		console.log("Form", formData);
 		addTransaction(formData);
+		setFormData({
+			text: "",
+			amount: 0,
+		});
 	}
 
 	return (
@@ -44,7 +48,7 @@ export default function AddTransaction() {
 						className="font-semibold text-gray-800 text-sm"
 						htmlFor="text"
 					>
-						Amount
+						Amount (+Amount or -Amount)
 					</label>
 					<input
 						type="number"
