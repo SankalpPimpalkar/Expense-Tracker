@@ -12,7 +12,7 @@ export default function TransactionHistory() {
 
 			<ul
 				style={{ scrollbarWidth: "thin" }}
-				className="space-y-2 mt-2 overflow-y-auto max-h-56"
+				className="space-y-2 mt-2 overflow-y-auto h-56"
 			>
 				{transactions.length > 0 ? (
 					transactions.map((transaction) => (
