@@ -40,8 +40,8 @@ http://localhost:8000/admin/ — Django admin
 ### 🔧 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/expense-tracker-api.git
-cd expense-tracker-api
+git clone https://github.com/SankalpPimpalkar/Expense-Tracker.git
+cd Expense-Tracker
 ```
 
 ---
